@@ -16,6 +16,22 @@ build:
         manual:
           - src: 'src/**/*.js'
             dest: .
+    - image: equationalapplications/peep
+      context: Peeps-Service
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.js'
+            dest: .
+    - image: equationalapplications/query
+      context: Query-Service
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.js'
+            dest: .
     - image: equationalapplications/front-end
       context: front-end
       docker:
