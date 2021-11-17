@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: birdsquawk-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: birdsquawk
+  template:
+    metadata:
+      labels:
+        app: birdsquawk
+    spec:
+      containers:
+        - name: birdsquawk
+          image: equationalapplications/birdsquawk:0.0.1
