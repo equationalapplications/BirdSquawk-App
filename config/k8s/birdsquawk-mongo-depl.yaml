@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: birdsquawk-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: birdsquawk-mongo
+  template:
+    metadata:
+      labels:
+        app: birdsquawk-mongo
+    spec:
+      containers:
+        - name: birdsquawk-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: birdsquawk-mongo-service
+spec:
+  selector:
+    app: birdsquawk-mongo
+  ports:
+    - name: database
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

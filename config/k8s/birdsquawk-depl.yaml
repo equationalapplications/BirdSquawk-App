@@ -14,4 +14,19 @@ spec:
     spec:
       containers:
         - name: birdsquawk
-          image: equationalapplications/birdsquawk:0.0.1
+          image: equationalapplications/birdsquawk
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: birdsquawk-service
+spec:
+  selector:
+    app: birdsquawk
+  ports:
+    - name: birdsquawk
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
+
+
