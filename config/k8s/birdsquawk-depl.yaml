@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: birdsquawk
-          image: equationalapplications/birdsquawk
+          image: equationalapplications/birdsquawk:latest
 ---
 apiVersion: v1
 kind: Service
@@ -28,5 +28,3 @@ spec:
       protocol: TCP
       port: 5000
       targetPort: 5000
-
-
